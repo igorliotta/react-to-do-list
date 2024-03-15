@@ -1,0 +1,191 @@
+* {
+    font-family: "Lakki Reddy", serif;
+}
+
+.todolist {
+    width: 500px;
+  }
+
+.edit {
+    color: #ffd700;
+}
+
+.save {
+    color: green;
+}
+
+.delete {
+    color: red
+}
+
+.checkbox-container input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+  }
+  
+  /* Create a custom checkbox container */
+  .checkbox-container {
+    position: relative;
+    display: inline-block;
+    font-size: 18px; /* Make the checkbox slightly bigger */
+    margin-bottom: 12px;
+    cursor: pointer;
+  }
+  
+  /* Style the checkmark */
+  .checkmark {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 30px; /* Make the checkbox slightly bigger */
+    width: 30px; /* Make the checkbox slightly bigger */
+    border: 2px solid lightgrey; /* Default color for the box */
+    border-radius: 6px; /* Round the corners */ /* Default color for the box */
+    transition: all 0.3s ease; /* Add smooth transition */
+  }
+  
+  /* Show the checkmark when checkbox is checked */
+  .checkbox-container input:checked ~ .checkmark:after {
+    display: block;
+    animation: checkboxExpand 0.3s ease forwards;
+  }
+  
+  /* Style the checkmark/indicator */
+  .checkmark:after {
+    content: "";
+    position: absolute;
+    display: none;
+    top: 50%; /* Center vertically */
+    left: 50%; /* Center horizontally */
+    transform: translate(-50%, -50%) rotate(45deg) scale(0); /* Center and hide initially, then scale to appear */
+    width: 8px; /* Adjust size */
+    height: 15px; /* Adjust size */
+    border: solid #fff; /* Change color of the tick to white */
+    border-width: 0 3px 3px 0; /* Adjust thickness and direction */
+  }
+  
+  /* On hover, add a lighter blue background color */
+  /* .checkbox-container:hover .checkmark {
+  } */
+  
+  /* When the checkbox is checked, add a black background */
+  .checkbox-container input:checked ~ .checkmark {
+    border-color: #64f689; /* Change border color */
+  }
+  
+  /* When the checkbox is checked, change the tick color to blue */
+  .checkbox-container input:checked ~ .checkmark:after {
+    border-color: #64f689; /* Change tick color to blue */
+  }
+  
+  /* Keyframes for expanding animation */
+  @keyframes checkboxExpand {
+    0% {
+      transform: translate(-50%, -50%) rotate(45deg) scale(0);
+    }
+    100% {
+      transform: translate(-50%, -50%) rotate(45deg) scale(1);
+    }
+  }
+
+  .button {
+  --main-focus: #2d8cf0;
+  --font-color: #323232;
+  --bg-color-sub: #dedede;
+  --bg-color: #eee;
+  --main-color: #323232;
+  position: relative;
+  width: 150px;
+  height: 40px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  border: 2px solid var(--main-color);
+  box-shadow: 4px 4px var(--main-color);
+  background-color: var(--bg-color);
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.button, .button__icon, .button__text {
+  transition: all 0.3s;
+  width: 50px;
+}
+
+.button .button__text {
+  transform: translateX(22px);
+  color: var(--font-color);
+  font-weight: 600;
+}
+
+.button .button__icon {
+  position: absolute;
+  transform: translateX(109px);
+  height: 100%;
+  width: 39px;
+  background-color: var(--bg-color-sub);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.button .svg {
+  width: 20px;
+  fill: var(--main-color);
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-width: 2;
+}
+
+.button:hover {
+  background: var(--bg-color);
+}
+
+.button:hover .button__text {
+  color: transparent;
+}
+
+.button:hover .button__icon {
+  width: 50px;
+  transform: translateX(0);
+}
+
+.button:active {
+  transform: translate(3px, 3px);
+  box-shadow: 0px 0px var(--main-color);
+}
+
+/* Input per inserire todo */
+.write-todo {
+    max-width: 190px;
+    background-color: white;
+    border: none;
+    padding: 10px;
+    border-radius: 10px;
+    outline: none;
+    color: black;
+  }
+  
+  .write-todo:focus {
+    animation: rotateShadow 2s infinite linear;
+  }
+  
+  @keyframes rotateShadow {
+    0% {
+      box-shadow: -4px -4px 0px 0px #F08080, 4px 4px 0px 0px black;
+    }
+    25% {
+      box-shadow: -4px 4px 0px 0px #F08080, 4px -4px 0px 0px black;
+    }
+    50% {
+      box-shadow: 4px 4px 0px 0px #F08080, -4px -4px 0px 0px black;
+    }
+    75% {
+      box-shadow: 4px -4px 0px 0px #F08080, -4px 4px 0px 0px black;
+    }
+    100% {
+      box-shadow: -4px -4px 0px 0px #F08080, 4px 4px 0px 0px black;
+    }
+  }
+  
