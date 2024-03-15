@@ -8,14 +8,17 @@
 
 .edit {
     color: #ffd700;
+    background-color: white;
 }
 
 .save {
     color: green;
+    background-color: white;
 }
 
 .delete {
-    color: red
+    color: red;
+    background-color: white;
 }
 
 .checkbox-container input {
@@ -92,8 +95,6 @@
   .button {
   --main-focus: #2d8cf0;
   --font-color: #323232;
-  --bg-color-sub: #dedede;
-  --bg-color: #eee;
   --main-color: #323232;
   position: relative;
   width: 150px;
@@ -106,6 +107,7 @@
   background-color: var(--bg-color);
   border-radius: 10px;
   overflow: hidden;
+  rotate: 15deg;
 }
 
 .button, .button__icon, .button__text {

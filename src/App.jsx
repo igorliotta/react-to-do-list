@@ -135,12 +135,12 @@ function App() {
                             onChange={(e) => setEditedTodo(e.target.value)}
                             className="border border-2 px-2 py-1"
                           />
-                          <span className="save">
+                          <button className="button save flex justify-center">
                             <i
                               className="fa-regular fa-bookmark fa-xl"
                               onClick={(e) => handleSaveEdit(index, e)}
                             ></i>
-                          </span>
+                          </button>
                           {/* <button
                             className="bg-lime-950 text-lime-400 border border-lime-400 border-b-4 font-medium overflow-hidden relative px-4 py-2 rounded-md hover:brightness-150 hover:border-t-4 hover:border-b active:opacity-75 outline-none duration-300 group"
                             onClick={(e) => handleSaveEdit(index, e)}
@@ -160,18 +160,18 @@ function App() {
                               <p className="items-center mt-1">{todo.text}</p>
                             </div>
                             <div className="flex gap-5">
-                              <span className="edit">
+                              <button className="button edit flex justify-center">
                                 <i
-                                  className="fa-regular fa-pen-to-square fa-xl"
+                                  className="fa-regular fa-pen-to-square"
                                   onClick={(e) => handleEditTodo(index, e)}
                                 ></i>
-                              </span>
-                              <span className="delete">
+                              </button>
+                              <button className="button delete flex justify-center">
                                 <i
-                                  className="fa-regular fa-trash-can fa-xl"
+                                  className="fa-regular fa-trash-can"
                                   onClick={(e) => handleTodoDelete(index, e)}
                                 ></i>
-                              </span>
+                              </button>
                             </div>
                           </div>
                         </>
