@@ -214,6 +214,14 @@ function App() {
               </>
             )}
           </div>
+          <div className="line"></div>
+  <div className="header">
+    <div className="sensor-1"></div>
+    <div className="sensor-2"></div>
+    <div className="sensor-3"></div>
+  </div>
+  <div className="volume-button"></div>
+  <div className="power-button"></div>
         </div>
       </div>
     </>
