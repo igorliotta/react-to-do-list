@@ -1,6 +1,8 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import "./styles/App.css";
-import Image from "./images/bg-iphone.jpeg";
+import Image from "./images/bg-4.jpeg";
+import Draw from "./images/draww.png";
+
 
 function App() {
   // Inizio useState
@@ -19,7 +21,19 @@ function App() {
   // Questa funzione definisce uno stato per gestire la visibilità della to-do list
   const [showTodos, setShowTodos] = useState(false);
 
+  // Questa funzione permette di definire uno stato per gestire l'ora corrente
+  const [currentTime, setCurrentTime] = useState(new Date());
+
   // Fine useState
+
+  // Viene gestita l'ora all'interno del useEffect tramite setInterval
+  useEffect(() => {
+    const intervalId = setInterval(() => {
+      setCurrentTime(new Date());
+    }, 1000);
+
+    return () => clearInterval(intervalId);
+  }, []);
 
   // Questa funzione gestisce il cambiamento nell'input per il nuovo todo
   const handleNewTodoChange = (e) => {
@@ -77,6 +91,17 @@ function App() {
             className="screen relative flex m-auto"
             style={{ backgroundImage: `url(${Image})` }}
           >
+            {/* Orario attuale */}
+            <div className="current-time text-white">
+              {currentTime.toLocaleTimeString()}
+            </div>
+
+            {/* Icone di batteria e segnale */}
+            <div className="battery mt-1">
+            <i className="fa-solid fa-signal"></i>
+            <span className="text-sm">4G</span>
+            <i className="fa-solid fa-battery-half"></i>
+            </div>
             {/* Qui devo strutturare tutto il codice della to do list */}
 
             {/* Button iniziale schermata home */}
@@ -112,7 +137,12 @@ function App() {
                       </div>
                     </div>
                   </div>
-                  <h2 className="text-center">Todo List</h2>
+                  
+                   <div className="title">
+                   <img className="img-title" src={Draw} alt="" />
+                  <h2 className="text-center title-text">Todo List</h2>
+                   </div>
+                  
                   <form className="flex items-center justify-between">
                     <input
                       type="text"
