@@ -74,115 +74,142 @@ function App() {
             </button>
             {showTodos && (
               <>
-              <div className="flex flex-col gap-5 border border-gray-400 rounded p-5 absolute w-48 h-1/2 overflow-scroll top-50 left-50 bg-white font-serif todolist todolist-container">
-                <div className="card">
-                <div className="flex p-2 gap-1">
-                  <div className="" onClick={handleToggleTodos}>
-                    <span className="bg-red-500 inline-block center w-4 h-4 rounded-full"></span>
+                <div className="flex flex-col gap-5 border border-gray-400 rounded p-5 absolute w-48 h-1/2 overflow-scroll top-50 left-50 bg-white font-serif todolist todolist-container">
+                  <div className="card">
+                    <div className="flex p-2 gap-1">
+                      <div className="" onClick={handleToggleTodos}>
+                        <span className="bg-red-500 inline-block center w-4 h-4 rounded-full"></span>
+                      </div>
+                      <div className="circle">
+                        <span className="bg-yellow-500 inline-block center w-4 h-4 rounded-full"></span>
+                      </div>
+                      <div className="circle">
+                        <span className="bg-green-500 box inline-block center w-4 h-4 rounded-full"></span>
+                      </div>
+                    </div>
                   </div>
-                  <div className="circle">
-                    <span className="bg-yellow-500 inline-block center w-4 h-4 rounded-full"></span>
-                  </div>
-                  <div className="circle">
-                    <span className="bg-green-500 box inline-block center w-4 h-4 rounded-full"></span>
-                  </div>
-                </div>
-                </div>
-                <h2 className="text-center">Todo List</h2>
-                <form className="flex items-center justify-between">
-                  <input
-                    type="text"
-                    placeholder="Inserisci Todo"
-                    name="text"
-                    value={newTodo}
-                    onChange={handleNewTodoChange}
-                    className="px-2 py-2 m-2 write-todo"
-                  />
-                  <button
-                    className="button"
-                    type="button"
-                    onClick={handleAddTodo}
-                  >
-                    <span className="button__text text-center"></span>
-                    <span className="button__icon">
-                      <svg
-                        className="svg"
-                        fill="none"
-                        height="24"
-                        stroke="currentColor"
-                        viewBox="0 0 24 24"
-                        width="24"
-                        xmlns="http://www.w3.org/2000/svg"
-                      >
-                        <line x1="12" x2="12" y1="5" y2="19"></line>
-                        <line x1="5" x2="19" y1="12" y2="12"></line>
-                      </svg>
-                    </span>
-                  </button>
-                </form>
-                {todos.length === 0 ? (
-                  <p className="m-4 p-4 text-7xl text-center">
-                    <span className="emoji">🤓</span>
-                  </p>
-                ) : (
-                  <ul className="todos">
-                    {todos.map((todo, index) => (
-                      <li
-                        className="todo flex gap-5 justify-start items-center m-2"
-                        key={index}
-                      >
-                        {editIndex === index ? (
-                          <>
-                            <input
-                              type="text"
-                              value={editedTodo}
-                              onChange={(e) => setEditedTodo(e.target.value)}
-                              className="border border-2 px-2 py-1"
-                            />
-                            <button className="button save flex justify-center">
-                              <i
-                                className="fa-regular fa-bookmark fa-xl"
-                                onClick={(e) => handleSaveEdit(index, e)}
-                              ></i>
-                            </button>
-                          </>
-                        ) : (
-                          <>
-                            <div className="todolist flex justify-between">
-                              <div className="flex gap-10">
-                                <label className="checkbox-container">
-                                  <input type="checkbox" />
-                                  <span className="checkmark"></span>
-                                </label>
-                                <p className="items-center mt-1">{todo.text}</p>
-                              </div>
-                              <div className="flex gap-5">
-                                <button className="button edit flex justify-center">
+                  <h2 className="text-center">Todo List</h2>
+                  <form className="flex items-center justify-between">
+                    <input
+                      type="text"
+                      placeholder="Inserisci Todo"
+                      name="text"
+                      value={newTodo}
+                      onChange={handleNewTodoChange}
+                      className="px-2 py-2 m-2 write-todo"
+                    />
+                    <button
+                      className="button"
+                      type="button"
+                      onClick={handleAddTodo}
+                    >
+                      <span className="button__text text-center"></span>
+                      <span className="button__icon">
+                        <svg
+                          className="svg"
+                          fill="none"
+                          height="24"
+                          stroke="currentColor"
+                          viewBox="0 0 24 24"
+                          width="24"
+                          xmlns="http://www.w3.org/2000/svg"
+                        >
+                          <line x1="12" x2="12" y1="5" y2="19"></line>
+                          <line x1="5" x2="19" y1="12" y2="12"></line>
+                        </svg>
+                      </span>
+                    </button>
+                  </form>
+                  {todos.length === 0 ? (
+                    <p className="flex flex-col m-auto p-4 text-7xl text-center">
+                      <span className="emoji">🤓</span>
+                    </p>
+                  ) : (
+                    <>
+                      <div className="flex gap-4 items-center justify-between">
+                      <span className="emoji text-center text-3xl">😱</span>
+                        {/* Button reset */}
+                      <button className="noselect">
+                        <span className="text mt-1">Delete All</span>
+                        <span className="icon">
+                          <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            width="24"
+                            height="24"
+                            viewBox="0 0 24 24"
+                          >
+                            <path d="M24 20.188l-8.315-8.209 8.2-8.282-3.697-3.697-8.212 8.318-8.31-8.203-3.666 3.666 8.321 8.24-8.206 8.313 3.666 3.666 8.237-8.318 8.285 8.203z"></path>
+                          </svg>
+                        </span>
+                      </button>
+                      {/* Fine button reset */}
+                      </div>
+                      <ul className="todos">
+                        {todos.map((todo, index) => (
+                          <li
+                            className="todo flex gap-5 justify-start items-center m-2"
+                            key={index}
+                          >
+                            {editIndex === index ? (
+                              <>
+                                <input
+                                  type="text"
+                                  value={editedTodo}
+                                  onChange={(e) =>
+                                    setEditedTodo(e.target.value)
+                                  }
+                                  className="border border-2 px-2 py-1"
+                                />
+                                <button className="button save flex justify-center">
                                   <i
-                                    className="fa-regular fa-pen-to-square"
-                                    onClick={(e) => handleEditTodo(index, e)}
+                                    className="fa-regular fa-bookmark fa-xl"
+                                    onClick={(e) => handleSaveEdit(index, e)}
                                   ></i>
                                 </button>
-                                <button className="button delete flex justify-center">
-                                  <i
-                                    className="fa-regular fa-trash-can"
-                                    onClick={(e) => handleTodoDelete(index, e)}
-                                  ></i>
-                                </button>
-                              </div>
-                            </div>
-                          </>
-                        )}
-                      </li>
-                    ))}
-                  </ul>
-                )}
-              </div>
+                              </>
+                            ) : (
+                              <>
+                                <div className="todolist flex justify-between">
+                                  <div className="flex gap-10">
+                                    <label className="checkbox-container">
+                                      <input type="checkbox" />
+                                      <span className="checkmark"></span>
+                                    </label>
+                                    <p className="items-center mt-1">
+                                      {todo.text}
+                                    </p>
+                                  </div>
+                                  <div className="flex gap-5">
+                                    <button className="button edit flex justify-center">
+                                      <i
+                                        className="fa-regular fa-pen-to-square"
+                                        onClick={(e) =>
+                                          handleEditTodo(index, e)
+                                        }
+                                      ></i>
+                                    </button>
+                                    <button className="button delete flex justify-center">
+                                      <i
+                                        className="fa-regular fa-trash-can"
+                                        onClick={(e) =>
+                                          handleTodoDelete(index, e)
+                                        }
+                                      ></i>
+                                    </button>
+                                  </div>
+                                </div>
+                              </>
+                            )}
+                          </li>
+                        ))}
+                      </ul>
+                    </>
+                  )}
+                </div>
               </>
             )}
           </div>
         </div>
-        
       </div>
     </>
   );
