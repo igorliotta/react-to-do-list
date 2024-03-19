@@ -62,6 +62,11 @@ function App() {
     setShowTodos(!showTodos);
   };
 
+  // Questa funzione resetta totalmente la lista di todo al click sul pulsante 
+  const handleDeleteAllTodos = () => {
+    setTodos([]); 
+  };
+
   return (
     <>
       {/* Layout iphone */}
@@ -129,8 +134,8 @@ function App() {
                       <div className="flex gap-4 items-center justify-between">
                       <span className="emoji text-center text-3xl">😱</span>
                         {/* Button reset */}
-                      <button className="noselect">
-                        <span className="text mt-1">Delete All</span>
+                      <button className="noselect mb-3" onClick={handleDeleteAllTodos}>
+                        <span className="text mt-1">Reset</span>
                         <span className="icon">
                           <svg
                             xmlns="http://www.w3.org/2000/svg"
